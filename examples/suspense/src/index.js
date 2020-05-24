@@ -1,13 +1,10 @@
 import React, { lazy } from "react";
 import ReactDOM from "react-dom";
-import { ReactQueryConfigProvider, queryCache } from "react-query";
-
-import "./styles.css";
-
-import { fetchProjects } from "./queries";
-
-import ErrorBounderay from "./components/ErrorBounderay";
+import { queryCache, ReactQueryConfigProvider } from "react-query";
 import Button from "./components/Button";
+import ErrorBoundary from "./components/ErrorBoundary";
+import { fetchProjects } from "./queries";
+import "./styles.css";
 
 const Projects = lazy(() => import("./components/Projects"));
 const Project = lazy(() => import("./components/Project"));
@@ -37,7 +34,7 @@ function App() {
 
       <hr />
 
-      <ErrorBounderay>
+      <ErrorBoundary>
         <React.Suspense fallback={<h1>Loading projects...</h1>}>
           {showProjects ? (
             activeProject ? (
@@ -50,7 +47,7 @@ function App() {
             )
           ) : null}
         </React.Suspense>
-      </ErrorBounderay>
+      </ErrorBoundary>
     </ReactQueryConfigProvider>
   );
 }

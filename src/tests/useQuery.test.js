@@ -1,19 +1,18 @@
 import {
-  render,
   act,
-  waitForElement,
-  fireEvent,
   cleanup,
+  fireEvent,
+  render,
   waitForDomChange,
+  waitForElement,
 } from '@testing-library/react'
-import { ErrorBoundary } from 'react-error-boundary'
 import * as React from 'react'
-
+import { ErrorBoundary } from 'react-error-boundary'
 import {
-  useQuery,
-  useQueryCache,
   makeQueryCache,
   ReactQueryCacheProvider,
+  useQuery,
+  useQueryCache,
 } from '../index'
 import { sleep } from './utils'
 
